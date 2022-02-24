@@ -1,0 +1,15 @@
+<div class="mb-3">
+  <label for="title" class="form-label">Title</label>
+  <input required value="<%= article.title %>" type="text" class="form-control" name="title" id="title">
+</div>
+<div class="mb-3">
+  <label for="description" class="form-label">Description</label>
+  <textarea required type="text" class="form-control" name="description" id="description"><%= article.description %></textarea>
+  <div class="form-text">Avoid using line breaks</div>
+</div>
+<div class="mb-3">
+  <label for="markdown" class="form-label">Markdown</label>
+  <textarea required type="text" class="form-control" name="markdown" id="markdown"><%= article.markdown %></textarea>
+</div>
+<a href="/" class="btn btn-secondary">Return</a>
+<button type="submit" class="btn btn-primary">Submit</button>

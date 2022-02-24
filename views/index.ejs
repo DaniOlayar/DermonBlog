@@ -1,0 +1,33 @@
+<div class="row my-4">
+  <div class="col-lg-10 col-md-9 col-sm-8 col-7">
+    <h1 class="display-3 fw-normal">Blog Articles</h1>
+  </div>
+  <div class="col-lg-2 col-md-3 col-sm-4 col-5 align-self-center d-grid">
+    <a class="btn btn-lg btn-success" href="/articles/new"><i class="fa-solid fa-pen-to-square"></i> | Add article</a>
+  </div>
+</div>
+<div class="mb-4">
+  <div id="cards">
+    <div class="row row-cols-2 row-cols-md-3 g-3" data-masonry='{"percentPosition": true }'>
+      <% articles.forEach(article=> { %>
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title"><%= article.title %> </h3>
+            <h5 class="card-subtitle my-2 text-muted"><%- article.createdAt.toLocaleDateString() %></h5>
+            <p class="card-text lead"><%- article.description %></p>
+          </div>
+          <div class="card-footer py-0">
+            <div class="text-center">
+              <form action="/articles/<%= article.id %>?_method=DELETE" method="post" class="row">
+                <a href="/articles/<%= article.slug %>" class="btn btn-footer-left col-6 bg-secondary text-white"><i class="fa-solid fa-square-arrow-up-right"></i> | See more</a>
+                <button type="submit" class="btn btn-footer-left col-6 bg-danger text-white"><i class="fa-solid fa-trash-can"></i> | Delete</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+</div>
